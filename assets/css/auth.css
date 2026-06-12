@@ -394,3 +394,13 @@ select.auth-input option {
         font-size: 1.5rem;
     }
 }
+
+@media (max-width: 375px) {
+    .auth-wrapper {
+        padding: 1rem;
+    }
+
+    .auth-card {
+        padding: 1.5rem 1rem;
+    }
+}

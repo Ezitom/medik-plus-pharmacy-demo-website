@@ -66,7 +66,14 @@ body.dashboard-body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.25rem;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    touch-action: manipulation;
+}
+
+.btn-sidebar-toggle i {
+    pointer-events: none;
 }
 
 .mobile-dash-title {
@@ -766,18 +773,20 @@ body.dashboard-body {
     /* Sidebar transforms to off-screen overlay drawer */
     .dashboard-sidebar {
         position: fixed;
-        left: -240px;
+        left: 0;
+        transform: translateX(-100%);
         top: 0;
         height: 100vh;
         width: var(--dash-sidebar-width);
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 100;
         border-right: 1px solid rgba(255, 255, 255, 0.12);
         box-shadow: 10px 0 30px rgba(0, 0, 0, 0.4);
+        will-change: transform;
     }
 
     .dashboard-sidebar.open {
-        left: 0;
+        transform: translateX(0);
     }
 
     .sidebar-profile {
@@ -869,14 +878,30 @@ body.dashboard-body {
         width: 100% !important;
     }
 
-    #panel-bookings .table-container {
+    /* General Mobile Table Responsiveness across all dashboard tabs */
+    .table-container {
         width: 100% !important;
         overflow-x: auto !important;
     }
 
-    #panel-bookings .glass-table th,
-    #panel-bookings .glass-table td {
+    .glass-table th,
+    .glass-table td {
         padding: 0.75rem 0.5rem !important;
         white-space: nowrap !important; /* Prevent column wrap or clipping */
+    }
+
+    /* Mobile Modal Optimizations */
+    .modal-box {
+        padding: 1.5rem 1.25rem !important;
+        border-radius: 16px !important;
+    }
+
+    .modal-title {
+        font-size: 1.25rem !important;
+        margin-bottom: 1.25rem !important;
+    }
+
+    .icon-selector-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
     }
 }

@@ -272,8 +272,10 @@ function initMobileMenu() {
 
     if (!hamburger || !navLinks) return;
 
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
         const isOpen = navLinks.classList.toggle('active');
+        document.body.classList.toggle('menu-open', isOpen);
         hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         hamburger.innerHTML = isOpen
             ? '<i class="ti ti-x"></i>'
@@ -284,6 +286,7 @@ function initMobileMenu() {
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
             hamburger.setAttribute('aria-expanded', 'false');
             hamburger.innerHTML = '<i class="ti ti-menu-2"></i>';
         });
@@ -293,6 +296,7 @@ function initMobileMenu() {
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
             hamburger.setAttribute('aria-expanded', 'false');
             hamburger.innerHTML = '<i class="ti ti-menu-2"></i>';
         }
