@@ -1,0 +1,396 @@
+/* MEDIK-PLUS PHARMACY - Auth Pages Shared Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@700;800;900&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #060D1A;
+    color: #F0F4F8;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Canvas Layer */
+#lightning-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Auth Wrapper */
+.auth-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 480px;
+    padding: 1.5rem;
+    margin: 2rem auto;
+}
+
+/* Auth Card */
+.auth-card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+}
+
+/* Logo */
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    margin-bottom: 2rem;
+}
+
+.auth-logo-cross {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #00B4A6, #00e0cf);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.auth-logo-cross i {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.auth-logo-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 1.35rem;
+    color: #F0F4F8;
+    line-height: 1.1;
+}
+
+.auth-logo-text span {
+    color: #00B4A6;
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+/* Auth Headings */
+.auth-heading {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #F0F4F8;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.auth-subheading {
+    font-size: 0.9rem;
+    color: #A0AEC0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Form Groups */
+.auth-form-group {
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.auth-form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #A0AEC0;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    color: #F0F4F8;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input::placeholder {
+    color: rgba(160, 174, 192, 0.45);
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: #00B4A6;
+    box-shadow: 0 0 0 3px rgba(0, 180, 166, 0.15);
+}
+
+.auth-input.error {
+    border-color: #E53E3E;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.12);
+}
+
+.auth-field-error {
+    font-size: 0.78rem;
+    color: #FC8181;
+    margin-top: 0.35rem;
+    display: none;
+}
+
+.auth-field-error.visible {
+    display: block;
+}
+
+/* Password toggle */
+.auth-input-wrapper {
+    position: relative;
+}
+
+.auth-input-wrapper .auth-input {
+    padding-right: 3rem;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #718096;
+    cursor: pointer;
+    font-size: 1.05rem;
+    padding: 0.2rem;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle-btn:hover {
+    color: #00B4A6;
+}
+
+/* Select */
+select.auth-input {
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2300B4A6' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    padding-right: 2.5rem;
+}
+
+select.auth-input option {
+    background: #0A1628;
+    color: #F0F4F8;
+}
+
+/* Checkbox */
+.auth-checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+}
+
+.auth-checkbox-row input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    accent-color: #00B4A6;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.auth-checkbox-row label {
+    font-size: 0.88rem;
+    color: #A0AEC0;
+    cursor: pointer;
+}
+
+/* Primary Button */
+.auth-btn {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: #00B4A6;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    margin-bottom: 1.25rem;
+}
+
+.auth-btn:hover {
+    background: #00968A;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 180, 166, 0.35);
+}
+
+.auth-btn:active {
+    transform: translateY(0);
+}
+
+/* Links Row */
+.auth-links-row {
+    text-align: center;
+    font-size: 0.88rem;
+    color: #718096;
+    margin-bottom: 0.65rem;
+}
+
+.auth-links-row a {
+    color: #00B4A6;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.auth-links-row a:hover {
+    color: #00e0cf;
+    text-decoration: underline;
+}
+
+/* Inline error / success alerts */
+.auth-alert {
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+    display: none;
+    font-weight: 600;
+}
+
+.auth-alert.visible {
+    display: block;
+}
+
+.auth-alert.error {
+    background: rgba(229, 62, 62, 0.15);
+    border: 1px solid rgba(229, 62, 62, 0.35);
+    color: #FC8181;
+}
+
+.auth-alert.success {
+    background: rgba(0, 180, 166, 0.12);
+    border: 1px solid rgba(0, 180, 166, 0.3);
+    color: #4FD1C5;
+}
+
+/* Divider */
+.auth-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 1.5rem 0;
+}
+
+/* Back link at bottom */
+.auth-back-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+}
+
+.auth-back-link a {
+    color: #718096;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+}
+
+.auth-back-link a:hover {
+    color: #00B4A6;
+}
+
+/* Password Strength Bar */
+.strength-bar-wrapper {
+    margin-top: 0.5rem;
+}
+
+.strength-bar-track {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.strength-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 4px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-label {
+    font-size: 0.75rem;
+    margin-top: 0.3rem;
+    font-weight: 600;
+    color: #718096;
+}
+
+/* Success message panel (forgot password) */
+.auth-success-panel {
+    text-align: center;
+    padding: 1.5rem 0;
+    display: none;
+}
+
+.auth-success-panel.visible {
+    display: block;
+}
+
+.auth-success-panel i {
+    font-size: 3rem;
+    color: #00B4A6;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.auth-success-panel p {
+    color: #CBD5E0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .auth-heading {
+        font-size: 1.5rem;
+    }
+}

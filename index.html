@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIK-PLUS PHARMACY - Modern Healthcare Solutions</title>
+    <meta name="description" content="Discover professional healthcare services, prescription refills, daily supplements, and diagnostic test kits at MEDIK-PLUS PHARMACY. Your wellness is our priority.">
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+
+    <!-- Sticky Header & Navbar -->
+    <header>
+        <nav class="navbar" id="main-navbar">
+            <a href="index.html" class="logo" id="nav-logo">
+                <div class="logo-cross">
+                    <i class="ti ti-plus"></i>
+                </div>
+                MEDIK-PLUS <span>PHARMACY</span>
+            </a>
+            
+            <ul class="nav-links" id="navbar-links">
+                <li><a href="index.html" class="active" id="link-home">Home</a></li>
+                <li><a href="about.html" id="link-about">About</a></li>
+                <li><a href="services.html" id="link-services">Services</a></li>
+                <li><a href="products.html" id="link-products">Products</a></li>
+                <li><a href="booking.html" id="link-booking">Booking</a></li>
+                <li><a href="contact.html" id="link-contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-primary btn-sm nav-auth-btn" id="nav-auth-btn">Staff Login</a>
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
+                    <i class="ti ti-moon"></i>
+                </button>
+                <button class="hamburger" id="mobile-menu-btn" aria-label="Open Navigation Menu">
+                    <i class="ti ti-menu-2"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero-section">
+            <!-- Hero Video BG (Simulation / Fallback URL) -->
+            <video class="hero-video-bg" autoplay loop muted playsinline poster="assets/images/hero/hero-bg.jpg">
+                <source src="assets/videos/promo.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay-fade"></div>
+            
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="badge">Your Trusted Health Partner</span>
+                    <h1>Clinical Care Meets Modern Pharmacy</h1>
+                    <p>Dedicated to providing professional medical consultations, timely prescription refills, and advanced wellness products. Experience medical excellence tailored to your family's needs.</p>
+                    <div class="hero-buttons">
+                        <a href="booking.html" class="btn btn-accent" id="hero-cta-booking">Book Prescription</a>
+                        <a href="services.html" class="btn btn-secondary" id="hero-cta-services" style="color: white; border-color: white;">Our Services</a>
+                    </div>
+                </div>
+                
+                <div class="hero-graphics">
+                    <div class="pulsing-cross-wrapper">
+                        <div class="pulsing-cross-ring"></div>
+                        <svg class="pulsing-cross" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="38" y="10" width="24" height="80" rx="6" fill="#00B4A6" />
+                            <rect x="10" y="38" width="80" height="24" rx="6" fill="#00B4A6" />
+                            <rect x="42" y="14" width="16" height="72" rx="4" fill="#FFFFFF" />
+                            <rect x="14" y="42" width="72" height="16" rx="4" fill="#FFFFFF" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar" id="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3>15K+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1200+</h3>
+                    <p>Premium Products</p>
+                </div>
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>Years of Service</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Emergency Support</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section class="section" id="about-preview" style="background-color: var(--bg-secondary);">
+            <div class="section-container">
+                <div class="about-story">
+                    <div class="about-story-img">
+                        <img src="assets/images/about/pharmacy-store.jpg" alt="Medik-Plus Pharmacy Store Front" onerror="this.src='https://via.placeholder.com/600x450?text=MEDIK-PLUS+PHARMACY'">
+                    </div>
+                    <div class="about-story-text">
+                        <span class="badge">Who We Are</span>
+                        <h2>Dedicated to Your Family's Health and Wellness</h2>
+                        <p>At MEDIK-PLUS PHARMACY, we believe that modern healthcare is about more than just dispensing prescriptions. It is about offering dedicated guidance, reliable products, and a clinical environment that supports your health journey.</p>
+                        <p>Our pharmacists bring decades of collective expertise to ensure you receive precise advice, safe drug administrations, and optimal health outcomes.</p>
+                        <a href="about.html" class="btn btn-primary" id="btn-about-learn-more">Learn More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview Section -->
+        <section class="section" id="services-preview" style="background-color: var(--bg-primary);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="badge">Healthcare Services</span>
+                    <h2>Clinical Services Tailored For You</h2>
+                    <p>From custom prescription compounding to standard diagnostic assessments, we provide a wide range of patient-focused clinical services.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-file-certificate"></i></div>
+                        <h3>Prescription Dispensing</h3>
+                        <p>Accurate compounding and delivery of all prescribed therapeutic drugs under professional supervision.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-stethoscope"></i></div>
+                        <h3>Pharmacist Consultation</h3>
+                        <p>One-on-one professional consultations to review medications, contraindications, and wellness guidelines.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-truck"></i></div>
+                        <h3>Home Delivery</h3>
+                        <p>Swift and secure shipping of prescription and medical essentials directly to your home address.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-needle"></i></div>
+                        <h3>Immunization Services</h3>
+                        <p>Walk-in flu shots, clinical vaccinations, and preventative healthcare inoculations administered on-site.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3.5rem;">
+                    <a href="services.html" class="btn btn-primary" id="btn-services-learn-more">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Preview Section -->
+        <section class="section" id="products-preview" style="background-color: var(--bg-secondary);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="badge">Wellness Products</span>
+                    <h2>Featured Medical Supplies and Supplements</h2>
+                    <p>Explore our curated selection of high-quality diagnostic kit packages, daily supplements, and prescription medications.</p>
+                </div>
+                
+                <div class="cards-grid" id="home-products-preview">
+                    <!-- Loaded dynamically via app.js -->
+                </div>
+                
+                <div style="text-align: center; margin-top: 3.5rem;">
+                    <a href="products.html" class="btn btn-primary" id="btn-products-learn-more">Browse Products Catalog</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Preview Section -->
+        <section class="section" id="contact-preview" style="background-color: var(--bg-primary);">
+            <div class="section-container">
+                <div class="about-story">
+                    <div class="about-story-text">
+                        <span class="badge">Get In Touch</span>
+                        <h2>We are Here to Help with Your Healthcare Needs</h2>
+                        <p>Have a question about prescription availability, clinical services, or booking a vaccination appointment? Our support representatives and on-duty pharmacists are ready to answer your inquiries.</p>
+                        <p>Visit us during business hours or call our customer care hotline directly for emergency medical assistance.</p>
+                        <a href="contact.html" class="btn btn-primary" id="btn-contact-learn-more">Contact Our Team</a>
+                    </div>
+                    <div class="about-story-img">
+                        <img src="assets/images/about/pharmacists-working.jpg" alt="Pharmacists assisting customer" onerror="this.src='https://via.placeholder.com/600x450?text=CONTACT+MEDIK-PLUS'">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="global-footer"></footer>
+
+    <!-- Core Javascript -->
+    <script src="app.js"></script>
+</body>
+</html>

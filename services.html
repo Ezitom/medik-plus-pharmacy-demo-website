@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - MEDIK-PLUS PHARMACY</title>
+    <meta name="description" content="Explore clinical services at MEDIK-PLUS PHARMACY including prescription refills, home delivery, immunization, chronic care management, adherence and diagnostics.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" id="main-navbar">
+            <a href="index.html" class="logo" id="nav-logo">
+                <div class="logo-cross"><i class="ti ti-plus"></i></div>
+                MEDIK-PLUS <span>PHARMACY</span>
+            </a>
+            <ul class="nav-links" id="navbar-links">
+                <li><a href="index.html" id="link-home">Home</a></li>
+                <li><a href="about.html" id="link-about">About</a></li>
+                <li><a href="services.html" class="active" id="link-services">Services</a></li>
+                <li><a href="products.html" id="link-products">Products</a></li>
+                <li><a href="booking.html" id="link-booking">Booking</a></li>
+                <li><a href="contact.html" id="link-contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-primary btn-sm nav-auth-btn" id="nav-auth-btn">Staff Login</a>
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode"><i class="ti ti-moon"></i></button>
+                <button class="hamburger" id="mobile-menu-btn" aria-label="Open Navigation Menu"><i class="ti ti-menu-2"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" style="background-color: var(--color-navy); color: var(--color-white); padding: 5rem 2rem 4rem; text-align: center;">
+            <div class="section-container">
+                <span class="badge">Clinical Services</span>
+                <h1 style="color: var(--color-white); font-size: clamp(2rem, 5vw, 3rem);">Comprehensive Clinical Services</h1>
+                <p style="color: #CBD5E0; max-width: 600px; margin: 1rem auto 0; font-size: 1.10rem;">Professional healthcare solutions delivered by registered pharmacists and wellness counselors.</p>
+            </div>
+        </section>
+
+        <section class="section" id="all-services" style="background-color: var(--bg-primary);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="badge">Our Expertise</span>
+                    <h2>A Wide Range of Community Healthcare Programs</h2>
+                    <p>We combine digital tools with hands-on medical consultations to make managing your wellness simple and secure.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-file-certificate"></i></div>
+                        <h3>Prescription Dispensing</h3>
+                        <p>We dispense medications with absolute accuracy, checking for adverse drug interactions and offering compounding options when required.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-stethoscope"></i></div>
+                        <h3>Pharmacist Consultation</h3>
+                        <p>Enjoy private consultations to discuss drug dosage parameters, therapeutic expectations, lifestyle interactions, and recovery schedules.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-truck"></i></div>
+                        <h3>Home Delivery</h3>
+                        <p>We ship repeat prescriptions and over-the-counter wellness products straight to your door with temperature-controlled logistics.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-needle"></i></div>
+                        <h3>Immunization</h3>
+                        <p>Receive routine immunization, travel vaccinations, and seasonal flu shots on-site from our certified clinical immunization team.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-heartbeat"></i></div>
+                        <h3>Chronic Disease Management</h3>
+                        <p>Supporting patients with diabetes, high blood pressure, and asthma through customized diagnostic monitoring programs.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-clock"></i></div>
+                        <h3>Medication Adherence</h3>
+                        <p>Organize multiple medications easily. We provide multi-dose bubble packaging, smart reminder calendars, and refill tracking.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-baby-carriage"></i></div>
+                        <h3>Mother and Child Health</h3>
+                        <p>Dedicated consultations covering safe pediatric dosing, baby nutritional formulas, prenatal care, and post-natal supplements.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ti ti-test-pipe"></i></div>
+                        <h3>Diagnostic Test Kits</h3>
+                        <p>On-demand pick up of test kits for glucose monitoring, cholesterol tracking, allergy evaluations, and standard metabolic stats.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 4rem;">
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Have questions about custom compounding or special drug administrations?</p>
+                    <a href="contact.html" class="btn btn-primary">Speak With A Pharmacist</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="global-footer"></footer>
+    <script src="app.js"></script>
+</body>
+</html>

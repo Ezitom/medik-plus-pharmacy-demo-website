@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - MEDIK-PLUS PHARMACY</title>
+    <meta name="description" content="MEDIK-PLUS PHARMACY internal administration dashboard. Manage bookings, product inventories, staff roles, and client messages.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Animated Canvas Background -->
+    <canvas id="lightning-canvas"></canvas>
+
+    <!-- Mobile Dashboard Top Navigation Bar -->
+    <div class="mobile-dash-nav">
+        <button type="button" class="btn-sidebar-toggle" id="btn-sidebar-toggle" aria-label="Toggle Sidebar">
+            <i class="ti ti-menu-2"></i>
+        </button>
+        <span class="mobile-dash-title">MEDIK-PLUS STAFF</span>
+    </div>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+            <a href="index.html" class="sidebar-logo">
+                <div class="sidebar-logo-cross">
+                    <i class="ti ti-plus"></i>
+                </div>
+                <div class="logo-text-group">
+                    <span class="brand-name">MEDIK-PLUS</span>
+                    <span class="brand-sub">STAFF</span>
+                </div>
+            </a>
+            
+            <div class="sidebar-divider"></div>
+            
+            <div class="sidebar-profile">
+                <div class="profile-avatar" id="profile-avatar-letters">AD</div>
+                <div class="profile-info">
+                    <h4 id="profile-username">Admin User</h4>
+                    <p id="profile-role">Portal Administrator</p>
+                </div>
+            </div>
+            
+            <div class="sidebar-divider"></div>
+            
+            <ul class="sidebar-menu">
+                <li class="menu-item active" data-tab="overview">
+                    <button type="button">
+                        <i class="ti ti-layout-dashboard"></i> Overview
+                    </button>
+                </li>
+                <li class="menu-item" data-tab="bookings">
+                    <button type="button">
+                        <i class="ti ti-calendar-event"></i> Reservations
+                    </button>
+                </li>
+                <li class="menu-item" data-tab="products">
+                    <button type="button">
+                        <i class="ti ti-pill"></i> Medications
+                    </button>
+                </li>
+                <li class="menu-item" data-tab="categories">
+                    <button type="button">
+                        <i class="ti ti-tag"></i> Categories
+                    </button>
+                </li>
+                <li class="menu-item" data-tab="staff">
+                    <button type="button">
+                        <i class="ti ti-users"></i> Staff Directory
+                    </button>
+                </li>
+                <li class="menu-item" data-tab="messages">
+                    <button type="button">
+                        <i class="ti ti-mail"></i> Inquiries
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <button type="button" class="btn-logout-sidebar" id="btn-logout">
+                    <i class="ti ti-logout"></i> Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard Content Area -->
+        <main class="dashboard-content">
+            
+            <!-- OVERVIEW TAB -->
+            <section class="tab-panel active" id="panel-overview">
+                <div class="panel-header">
+                    <div>
+                        <h2>Dashboard Overview</h2>
+                        <p style="color: #A0AEC0; margin-top: 0.25rem;">Real-time metrics and operations status.</p>
+                    </div>
+                </div>
+                
+                <!-- Stat Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card glass-card">
+                        <div class="stat-val">
+                            <h3 id="stat-bookings-count">0</h3>
+                            <p>Reservations</p>
+                        </div>
+                        <div class="stat-icon"><i class="ti ti-calendar-stats"></i></div>
+                    </div>
+                    
+                    <div class="stat-card glass-card">
+                        <div class="stat-val">
+                            <h3 id="stat-products-count">0</h3>
+                            <p>Medications</p>
+                        </div>
+                        <div class="stat-icon"><i class="ti ti-pill"></i></div>
+                    </div>
+                    
+                    <div class="stat-card glass-card">
+                        <div class="stat-val">
+                            <h3 id="stat-staff-count">0</h3>
+                            <p>Staff Portal</p>
+                        </div>
+                        <div class="stat-icon"><i class="ti ti-users"></i></div>
+                    </div>
+                    
+                    <div class="stat-card glass-card">
+                        <div class="stat-val">
+                            <h3 id="stat-messages-count">0</h3>
+                            <p>New Inquiries</p>
+                        </div>
+                        <div class="stat-icon"><i class="ti ti-mail-opened"></i></div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Table -->
+                <div class="glass-card-solid" style="padding: 2rem; margin-bottom: 2rem;">
+                    <h3 style="font-family: 'Raleway', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem; color: #F0F4F8;">
+                        <i class="ti ti-clock-play" style="color: #00B4A6; margin-right: 0.5rem; font-size: 1.2rem; vertical-align: middle;"></i>
+                        Recent Booking Activity
+                    </h3>
+                    <div class="table-container">
+                        <table class="glass-table">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Patient</th>
+                                    <th>Pickup Date</th>
+                                    <th>Estimated Value</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-bookings-tbody">
+                                <tr>
+                                    <td colspan="5" class="no-data"><i class="ti ti-inbox"></i>No reservations recorded yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RESERVATIONS TAB -->
+            <section class="tab-panel" id="panel-bookings">
+                <div class="panel-header">
+                    <div>
+                        <h2>Manage Reservations</h2>
+                        <p style="color: #A0AEC0; margin-top: 0.25rem;">View and dispatch patient pickup orders.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card-solid" style="padding: 2rem;">
+                    <div class="filter-row">
+                        <div class="filter-group" id="booking-status-filters">
+                            <button type="button" class="dash-filter-btn active" data-status="All">All Orders</button>
+                            <button type="button" class="dash-filter-btn" data-status="Pending">Pending</button>
+                            <button type="button" class="dash-filter-btn" data-status="Completed">Completed</button>
+                            <button type="button" class="dash-filter-btn" data-status="Cancelled">Cancelled</button>
+                        </div>
+                        <div style="position: relative;">
+                            <input type="text" id="booking-search" class="glass-input" placeholder="Search code or patient..." style="font-size: 0.85rem; padding: 0.5rem 1rem; width: 220px;">
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="glass-table">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Patient</th>
+                                    <th>Phone</th>
+                                    <th>Pickup Date</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookings-tbody">
+                                <tr>
+                                    <td colspan="8" class="no-data"><i class="ti ti-inbox"></i>No reservations recorded yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MEDICATIONS TAB -->
+            <section class="tab-panel" id="panel-products">
+                <div class="panel-header">
+                    <div>
+                        <h2>Medications Catalog</h2>
+                        <p style="color: #A0AEC0; margin-top: 0.25rem;">Add, edit, or remove store products.</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btn-add-product">
+                        <i class="ti ti-plus"></i> Add Medication
+                    </button>
+                </div>
+
+                <div class="glass-card-solid" style="padding: 2rem;">
+                    <div class="table-container">
+                        <table class="glass-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-tbody">
+                                <tr>
+                                    <td colspan="5" class="no-data"><i class="ti ti-inbox"></i>No medications registered yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORIES TAB -->
+            <section class="tab-panel" id="panel-categories">
+                <div class="panel-header">
+                    <div>
+                        <h2>Product Categories</h2>
+                        <p style="color: #A0AEC0; margin-top: 0.25rem;">Create and manage product catalog categories.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card-solid" style="padding: 2rem;">
+                    <div class="categories-grid" id="categories-grid">
+                        <!-- Dynamically populated via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- STAFF TAB -->
+            <section class="tab-panel" id="panel-staff">
+                <div class="panel-header">
+                    <div>
+                        <h2>Staff Directory</h2>
+                        <p style="color: #A0AEC0; margin-top: 0.25rem;">Registered pharmacy staff with portal access.</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btn-add-staff">
+                        <i class="ti ti-user-plus"></i> Register Staff
+                    </button>
+                </div>
+
+                <div class="glass-card-solid" style="padding: 2rem;">
+                    <div class="table-container">
+                        <table class="glass-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Joined Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="staff-tbody">
+                                <tr>
+                                    <td colspan="5" class="no-data"><i class="ti ti-inbox"></i>No staff registered yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INQUIRIES TAB -->
+            <section class="tab-panel" id="panel-messages">
+                <div class="panel-header">
+                    <div>
+                        <h2>Client Inquiries</h2>
+                        <p style="color: #A0AEC0; margin-top: 0.25rem;">View contact submissions and client questions.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card-solid" style="padding: 2rem;">
+                    <div class="table-container">
+                        <table class="glass-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Sender</th>
+                                    <th>Subject</th>
+                                    <th>Message</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messages-tbody">
+                                <tr>
+                                    <td colspan="6" class="no-data"><i class="ti ti-inbox"></i>No client messages received.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL: ADD / EDIT PRODUCT -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-box">
+            <button type="button" class="modal-close-btn" id="product-modal-close" aria-label="Close modal">
+                <i class="ti ti-x"></i>
+            </button>
+            <h3 class="modal-title" id="product-modal-title">Add New Medication</h3>
+            
+            <form id="product-form" novalidate>
+                <input type="hidden" id="product-form-id">
+                
+                <div class="glass-form-group">
+                    <label for="prod-name">Medication/Product Name *</label>
+                    <input type="text" id="prod-name" class="glass-input" required placeholder="e.g., Vitamin C 500mg">
+                    <span class="field-error" id="prod-name-error">Product name is required.</span>
+                </div>
+                
+                <div class="glass-form-group">
+                    <label for="prod-category">Category *</label>
+                    <select id="prod-category" class="glass-input" required>
+                        <!-- Populated dynamically via JS -->
+                    </select>
+                    <span class="field-error" id="prod-category-error">Category is required.</span>
+                </div>
+                
+                <div class="glass-form-group">
+                    <label for="prod-price">Unit Price ($) *</label>
+                    <input type="number" id="prod-price" class="glass-input" step="0.01" min="0.01" required placeholder="e.g., 12.99">
+                    <span class="field-error" id="prod-price-error">Please enter a valid price (greater than 0).</span>
+                </div>
+                
+                <div class="glass-form-group">
+                    <label for="prod-image">Image Filename / URL</label>
+                    <input type="text" id="prod-image" class="glass-input" placeholder="e.g., assets/images/products/vitamin_c.jpg">
+                    <p style="font-size: 0.75rem; color: #718096; margin-top: 0.25rem;">Leave empty for fallback brand placeholder.</p>
+                </div>
+                
+                <div class="glass-form-group">
+                    <label for="prod-desc">Description *</label>
+                    <textarea id="prod-desc" class="glass-input" rows="3" required placeholder="Describe product details, dosages or instructions..."></textarea>
+                    <span class="field-error" id="prod-desc-error">Description is required.</span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="prod-submit-btn">
+                    Save Product
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: ADD CATEGORY -->
+    <div class="modal-overlay" id="category-modal">
+        <div class="modal-box" style="max-width: 480px;">
+            <button type="button" class="modal-close-btn" id="category-modal-close" aria-label="Close modal">
+                <i class="ti ti-x"></i>
+            </button>
+            <h3 class="modal-title">Add New Category</h3>
+            
+            <form id="category-form" novalidate>
+                <div class="glass-form-group">
+                    <label for="cat-name">Category Name *</label>
+                    <input type="text" id="cat-name" class="glass-input" required placeholder="e.g., Dental Care">
+                    <span class="field-error" id="cat-name-error">Category name is required.</span>
+                </div>
+                
+                <div class="glass-form-group">
+                    <label>Select Category Icon *</label>
+                    <div class="icon-selector-grid">
+                        <div class="icon-tile" data-icon="ti ti-pill">
+                            <i class="ti ti-pill"></i>
+                            <span>Pill</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-first-aid-kit">
+                            <i class="ti ti-first-aid-kit"></i>
+                            <span>First Aid</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-leaf">
+                            <i class="ti ti-leaf"></i>
+                            <span>Leaf</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-heart">
+                            <i class="ti ti-heart"></i>
+                            <span>Heart</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-eye">
+                            <i class="ti ti-eye"></i>
+                            <span>Eye</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-droplet">
+                            <i class="ti ti-droplet"></i>
+                            <span>Droplet</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-baby-carriage">
+                            <i class="ti ti-baby-carriage"></i>
+                            <span>Baby</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-stethoscope">
+                            <i class="ti ti-stethoscope"></i>
+                            <span>Stethoscope</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-vaccine">
+                            <i class="ti ti-vaccine"></i>
+                            <span>Vaccine</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-test-pipe">
+                            <i class="ti ti-test-pipe"></i>
+                            <span>Test Tube</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-activity">
+                            <i class="ti ti-activity"></i>
+                            <span>Activity</span>
+                        </div>
+                        <div class="icon-tile" data-icon="ti ti-wheelchair">
+                            <i class="ti ti-wheelchair"></i>
+                            <span>Wheelchair</span>
+                        </div>
+                    </div>
+                    <span class="field-error" id="cat-icon-error">Please select an icon.</span>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                    <button type="button" class="btn btn-secondary" style="flex: 1;" id="btn-cancel-category">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">Save Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: ADD STAFF -->
+    <div class="modal-overlay" id="staff-modal">
+        <div class="modal-box">
+            <button type="button" class="modal-close-btn" id="staff-modal-close" aria-label="Close modal">
+                <i class="ti ti-x"></i>
+            </button>
+            <h3 class="modal-title">Register Staff Account</h3>
+            
+            <form id="staff-form" novalidate>
+                <div class="glass-form-group">
+                    <label for="st-name">Full Name *</label>
+                    <input type="text" id="st-name" class="glass-input" required placeholder="Dr. John Doe">
+                    <span class="field-error" id="st-name-error">Full name is required.</span>
+                </div>
+                
+                <div class="glass-form-group">
+                    <label for="st-email">Email Address *</label>
+                    <input type="email" id="st-email" class="glass-input" required placeholder="john.doe@medikplus.com">
+                    <span class="field-error" id="st-email-error">Please enter a valid email address.</span>
+                </div>
+                
+                <div class="glass-form-group">
+                    <label for="st-role">Role *</label>
+                    <select id="st-role" class="glass-input" required>
+                        <option value="" disabled selected>Select role</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Pharmacist">Pharmacist</option>
+                        <option value="Dispenser">Dispenser</option>
+                        <option value="Store Manager">Store Manager</option>
+                    </select>
+                    <span class="field-error" id="st-role-error">Role is required.</span>
+                </div>
+                
+                <div class="glass-form-group">
+                    <label for="st-password">Password *</label>
+                    <input type="password" id="st-password" class="glass-input" required placeholder="At least 8 characters">
+                    <span class="field-error" id="st-password-error">Password must be at least 8 characters.</span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    Create Account
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script Links -->
+    <script src="assets/js/lightning-bg.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

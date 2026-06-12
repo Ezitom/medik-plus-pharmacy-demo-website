@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - MEDIK-PLUS PHARMACY</title>
+    <meta name="description" content="Browse prescription medications, medical tools, multivitamins, and eye and skin care products. Filter and book for local pick up at MEDIK-PLUS PHARMACY.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" id="main-navbar">
+            <a href="index.html" class="logo" id="nav-logo">
+                <div class="logo-cross"><i class="ti ti-plus"></i></div>
+                MEDIK-PLUS <span>PHARMACY</span>
+            </a>
+            <ul class="nav-links" id="navbar-links">
+                <li><a href="index.html" id="link-home">Home</a></li>
+                <li><a href="about.html" id="link-about">About</a></li>
+                <li><a href="services.html" id="link-services">Services</a></li>
+                <li><a href="products.html" class="active" id="link-products">Products</a></li>
+                <li><a href="booking.html" id="link-booking">Booking</a></li>
+                <li><a href="contact.html" id="link-contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-primary btn-sm nav-auth-btn" id="nav-auth-btn">Staff Login</a>
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode"><i class="ti ti-moon"></i></button>
+                <button class="hamburger" id="mobile-menu-btn" aria-label="Open Navigation Menu"><i class="ti ti-menu-2"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" style="background-color: var(--color-navy); color: var(--color-white); padding: 5rem 2rem 4rem; text-align: center;">
+            <div class="section-container">
+                <span class="badge">Products Catalog</span>
+                <h1 style="color: var(--color-white); font-size: clamp(2rem, 5vw, 3rem);">Medical Supplies &amp; Pharmacy Products</h1>
+                <p style="color: #CBD5E0; max-width: 600px; margin: 1rem auto 0; font-size: 1.10rem;">Secure prescription drugs, home diagnostics, and high-purity vitamins for local pharmacy pickup.</p>
+            </div>
+        </section>
+
+        <section class="section" id="products-catalog-section" style="background-color: var(--bg-primary);">
+            <div class="section-container">
+                <!-- Search Input Component -->
+                <div class="search-wrapper">
+                    <i class="ti ti-search" aria-hidden="true"></i>
+                    <input type="text" id="product-search" placeholder="Search medications, supplements, equipment..." autocomplete="off">
+                    <button id="search-clear" aria-label="Clear search">
+                        <i class="ti ti-x" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <!-- Category Filter Bar -->
+                <div class="filter-bar" id="category-filter-bar">
+                    <button class="filter-btn active" data-filter="All" id="filter-all">All Products</button>
+                    <button class="filter-btn" data-filter="Prescription" id="filter-prescription">Prescription</button>
+                    <button class="filter-btn" data-filter="First Aid" id="filter-firstaid">First Aid</button>
+                    <button class="filter-btn" data-filter="Mother and Baby" id="filter-motherbaby">Mother &amp; Baby</button>
+                    <button class="filter-btn" data-filter="Supplements" id="filter-supplements">Supplements</button>
+                    <button class="filter-btn" data-filter="Cardiac Care" id="filter-cardiac">Cardiac Care</button>
+                    <button class="filter-btn" data-filter="Eye Care" id="filter-eyecare">Eye Care</button>
+                    <button class="filter-btn" data-filter="Skin" id="filter-skin">Skin</button>
+                </div>
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Dynamically populated via app.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="global-footer"></footer>
+    <script src="app.js"></script>
+</body>
+</html>

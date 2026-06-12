@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MEDIK-PLUS PHARMACY</title>
+    <meta name="description" content="Get in touch with MEDIK-PLUS PHARMACY. Submit questions, check medication availability, or view store address, phone numbers, and operational hours.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" id="main-navbar">
+            <a href="index.html" class="logo" id="nav-logo">
+                <div class="logo-cross"><i class="ti ti-plus"></i></div>
+                MEDIK-PLUS <span>PHARMACY</span>
+            </a>
+            <ul class="nav-links" id="navbar-links">
+                <li><a href="index.html" id="link-home">Home</a></li>
+                <li><a href="about.html" id="link-about">About</a></li>
+                <li><a href="services.html" id="link-services">Services</a></li>
+                <li><a href="products.html" id="link-products">Products</a></li>
+                <li><a href="booking.html" id="link-booking">Booking</a></li>
+                <li><a href="contact.html" class="active" id="link-contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-primary btn-sm nav-auth-btn" id="nav-auth-btn">Staff Login</a>
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode"><i class="ti ti-moon"></i></button>
+                <button class="hamburger" id="mobile-menu-btn" aria-label="Open Navigation Menu"><i class="ti ti-menu-2"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" style="background-color: var(--color-navy); color: var(--color-white); padding: 5rem 2rem 4rem; text-align: center;">
+            <div class="section-container">
+                <span class="badge">Contact Us</span>
+                <h1 style="color: var(--color-white); font-size: clamp(2rem, 5vw, 3rem);">Connect With Our Pharmacy Team</h1>
+                <p style="color: #CBD5E0; max-width: 600px; margin: 1rem auto 0; font-size: 1.10rem;">Reach out for assistance with prescription availability, clinic consultations, or insurance plans.</p>
+            </div>
+        </section>
+
+        <section class="section" id="contact-details-section" style="background-color: var(--bg-primary);">
+            <div class="section-container">
+                <div class="contact-layout">
+                    <!-- Left: Contact Form -->
+                    <div class="booking-panel">
+                        <h3>Send Us A Message</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2rem;">Please fill out the form below and our customer service or pharmacist team will respond shortly.</p>
+                        
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name *</label>
+                                <input type="text" id="contact-name" class="form-control" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address *</label>
+                                <input type="email" id="contact-email" class="form-control" required placeholder="johndoe@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-subject">Inquiry Subject *</label>
+                                <select id="contact-subject" class="form-control" required>
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Prescription Refill Questions">Prescription Refill Questions</option>
+                                    <option value="Insurance &amp; Billing">Insurance &amp; Billing</option>
+                                    <option value="Feedback">Suggestion or Feedback</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Message *</label>
+                                <textarea id="contact-message" class="form-control" rows="5" required placeholder="Enter details about your inquiry here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;" id="btn-send-message">
+                                <i class="ti ti-send"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Map & Store Info -->
+                    <div class="contact-right-column">
+                        <!-- Map Placeholder: MEDIK-PLUS PHARMACY, HAWC Building, Nigeria (to be replaced with the actual embed URL when available) -->
+                        <div class="map-container" id="google-maps-placeholder">
+                            <div class="map-placeholder">
+                                <i class="ti ti-map-2"></i>
+                                <h4 style="margin-bottom: 0.5rem; font-weight: 800;">Interactive Map Placeholder</h4>
+                                <p style="font-size: 0.85rem; max-width: 320px;">For dynamic map views, enable mapping services. Our physical clinic is located at MEDIK-PLUS PHARMACY, HAWC Building, Nigeria.</p>
+                            </div>
+                        </div>
+
+                        <!-- Info Card -->
+                        <div class="info-card">
+                            <h3>Store Details</h3>
+                            
+                            <div class="info-item">
+                                <div class="info-icon"><i class="ti ti-map-pin"></i></div>
+                                <div class="info-text">
+                                    <h4>Physical Address</h4>
+                                    <p> 2 Zone C, Adekola Junction, Off New Ife Road, Iyana Agbala Road, Ibadan, Oyo State.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon"><i class="ti ti-phone"></i></div>
+                                <div class="info-text">
+                                    <h4>Phone Numbers</h4>
+                                    <p>Main Line: <a href="tel:+2348061528355">+2348061528355</a></p>
+                                    <p>Prescriptions Hot-line: <a href="tel:+2347065352978">+2347065352978</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon"><i class="ti ti-mail"></i></div>
+                                <div class="info-text">
+                                    <h4>Email Support</h4>
+                                    <p><a href="mailto:medikpluspharmacyhawc@gmail.com">medikpluspharmacyhawc@gmail.com</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon"><i class="ti ti-clock"></i></div>
+                                <div class="info-text">
+                                    <h4>Operating Hours</h4>
+                                    <p>Monday - Saturday: 8:00 AM - 10:00 PM</p>
+                                    <p>Sunday: 10:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="global-footer"></footer>
+    <script src="app.js"></script>
+</body>
+</html>

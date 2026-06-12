@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Prescription - MEDIK-PLUS PHARMACY</title>
+    <meta name="description" content="Use our interactive pharmacy booking form to select wellness products, schedule a pickup date, and generate a reservation code at MEDIK-PLUS PHARMACY.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" id="main-navbar">
+            <a href="index.html" class="logo" id="nav-logo">
+                <div class="logo-cross"><i class="ti ti-plus"></i></div>
+                MEDIK-PLUS <span>PHARMACY</span>
+            </a>
+            <ul class="nav-links" id="navbar-links">
+                <li><a href="index.html" id="link-home">Home</a></li>
+                <li><a href="about.html" id="link-about">About</a></li>
+                <li><a href="services.html" id="link-services">Services</a></li>
+                <li><a href="products.html" id="link-products">Products</a></li>
+                <li><a href="booking.html" class="active" id="link-booking">Booking</a></li>
+                <li><a href="contact.html" id="link-contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-primary btn-sm nav-auth-btn" id="nav-auth-btn">Staff Login</a>
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode"><i class="ti ti-moon"></i></button>
+                <button class="hamburger" id="mobile-menu-btn" aria-label="Open Navigation Menu"><i class="ti ti-menu-2"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" style="background-color: var(--color-navy); color: var(--color-white); padding: 5rem 2rem 4rem; text-align: center;">
+            <div class="section-container">
+                <span class="badge">Prescription Booking</span>
+                <h1 style="color: var(--color-white); font-size: clamp(2rem, 5vw, 3rem);">Prescription &amp; Wellness Reservation</h1>
+                <p style="color: #CBD5E0; max-width: 600px; margin: 1rem auto 0; font-size: 1.10rem;">Select medical items, specify your pickup date, and generate an official reservation receipt.</p>
+            </div>
+        </section>
+
+        <section class="section" id="booking-section" style="background-color: var(--bg-primary);">
+            <div class="section-container">
+                <div class="booking-layout">
+                    <!-- Left: Selectable Product Picker & Customer Form -->
+                    <div class="booking-left-column">
+                        <!-- Selectable Product List -->
+                        <div class="booking-panel" style="margin-bottom: 2rem;">
+                            <h3>Step 1: Select Your Products</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">Click on the items below to add or remove them from your reservation list.</p>
+                            <div class="unavailable-callout">
+                                <i class="ti ti-info-circle" aria-hidden="true"></i>
+                                <p>Can't find what you're looking for? Some medications and products may be temporarily out of stock or not yet listed in our catalog. If you need a specific item that is unavailable or missing, reach out to us directly through our contact page and our team will get back to you promptly.</p>
+                            </div>
+                            <div class="product-picker-container" id="product-picker">
+                                <!-- Populated dynamically by app.js -->
+                            </div>
+                        </div>
+
+                        <!-- Customer Details Form -->
+                        <div class="booking-panel">
+                            <h3>Step 2: Enter Pickup Details</h3>
+                            <form id="booking-form" novalidate>
+                                <div class="form-group">
+                                    <label for="customer-name">Full Name *</label>
+                                    <input type="text" id="customer-name" class="form-control" required placeholder="John Doe">
+                                    <span class="field-error" id="customer-name-error" style="color: #E53E3E; font-size: 0.8rem; display: none; margin-top: 0.25rem;">Full name is required.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-phone">Phone Number *</label>
+                                    <input type="tel" id="customer-phone" class="form-control" required placeholder="+1 (555) 000-0000">
+                                    <span class="field-error" id="customer-phone-error" style="color: #E53E3E; font-size: 0.8rem; display: none; margin-top: 0.25rem;">Please enter a valid phone number.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pickup-date">Preferred Pickup Date *</label>
+                                    <input type="date" id="pickup-date" class="form-control" required>
+                                    <span class="field-error" id="pickup-date-error" style="color: #E53E3E; font-size: 0.8rem; display: none; margin-top: 0.25rem;">Pickup date is required.</span>
+                                </div>
+                                <button type="submit" class="btn btn-accent" style="width: 100%;" id="btn-submit-booking">
+                                    <i class="ti ti-ticket"></i> Generate Booking Tag
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Right: Live Receipt Panel -->
+                    <div class="booking-right-column" id="receipt-container">
+                        <div class="receipt-box">
+                            <div class="receipt-header">
+                                <div class="logo" style="justify-content: center; font-size: 1.3rem; margin-bottom: 0.5rem;">
+                                    <div class="logo-cross" style="width: 26px; height: 26px;">
+                                        <i class="ti ti-plus" style="font-size: 0.9rem;"></i>
+                                    </div>
+                                    MEDIK-PLUS
+                                </div>
+                                <p>PRE-RESERVATION SLIP</p>
+                                <div id="receipt-status-badge" style="display: none; margin-top: 0.5rem;"></div>
+                            </div>
+                            <!-- Items Section -->
+                            <div class="receipt-items" id="receipt-items">
+                                <!-- Populated dynamically by app.js -->
+                            </div>
+                            <div class="receipt-divider"></div>
+                            <!-- Customer Info Section -->
+                            <div class="receipt-info-row">
+                                <span>Patient Name:</span>
+                                <span id="receipt-customer-name">-</span>
+                            </div>
+                            <div class="receipt-info-row">
+                                <span>Contact Phone:</span>
+                                <span id="receipt-customer-phone">-</span>
+                            </div>
+                            <div class="receipt-info-row">
+                                <span>Scheduled Date:</span>
+                                <span id="receipt-pickup-date">-</span>
+                            </div>
+                            <div class="receipt-divider"></div>
+                            <!-- Running Total -->
+                            <div class="receipt-total">
+                                <span>Estimated Total:</span>
+                                <span id="receipt-total-value">$0.00</span>
+                            </div>
+                            <!-- Generated Confirmation Tag -->
+                            <div class="receipt-tag-container" id="receipt-tag-container">
+                                <div class="receipt-tag-label">Reservation Tag</div>
+                                <div class="receipt-tag-code" id="receipt-tag-code">MDP-7X3KAB</div>
+                                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.4;">Present this code to the pharmacist at the counter upon arrival.</p>
+                            </div>
+                        </div>
+                        <!-- Receipt Actions (Hidden by default) -->
+                        <div id="receipt-actions" style="display: none; gap: 1rem; margin-top: 1.5rem; justify-content: center;">
+                            <button type="button" class="btn btn-secondary" id="btn-print-receipt" style="flex: 1;">
+                                <i class="ti ti-printer"></i> Print Receipt
+                            </button>
+                            <button type="button" class="btn btn-primary" id="btn-reset-booking" style="flex: 1;">
+                                <i class="ti ti-reload"></i> Make Another Booking
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="global-footer"></footer>
+    <script src="app.js"></script>
+</body>
+</html>
