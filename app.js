@@ -272,15 +272,6 @@ function initMobileMenu() {
 
     if (!hamburger || !navLinks) return;
 
-    // Append mobile auth button to the drawer list dynamically
-    if (!document.getElementById('mobile-nav-auth-item')) {
-        const authLi = document.createElement('li');
-        authLi.id = 'mobile-nav-auth-item';
-        authLi.className = 'mobile-only-auth-item';
-        authLi.innerHTML = `<a href="login.html" id="mobile-nav-auth-btn" class="mobile-only-auth-btn">Staff Login</a>`;
-        navLinks.appendChild(authLi);
-    }
-
     hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
         const isOpen = navLinks.classList.toggle('active');
@@ -315,27 +306,15 @@ function initMobileMenu() {
 /* Auth-aware nav button: shows Login or Dashboard */
 function updateNavAuthState() {
     const navBtn = document.getElementById('nav-auth-btn');
-    const mobileNavBtn = document.getElementById('mobile-nav-auth-btn');
+    if (!navBtn) return;
+
     const isLoggedIn = localStorage.getItem('medik_auth') === 'true';
-
-    if (navBtn) {
-        if (isLoggedIn) {
-            navBtn.href        = 'dashboard.html';
-            navBtn.textContent = 'Dashboard';
-        } else {
-            navBtn.href        = 'login.html';
-            navBtn.textContent = 'Staff Login';
-        }
-    }
-
-    if (mobileNavBtn) {
-        if (isLoggedIn) {
-            mobileNavBtn.href        = 'dashboard.html';
-            mobileNavBtn.textContent = 'Dashboard';
-        } else {
-            mobileNavBtn.href        = 'login.html';
-            mobileNavBtn.textContent = 'Staff Login';
-        }
+    if (isLoggedIn) {
+        navBtn.href        = 'dashboard.html';
+        navBtn.textContent = 'Dashboard';
+    } else {
+        navBtn.href        = 'login.html';
+        navBtn.textContent = 'Staff Login';
     }
 }
 
