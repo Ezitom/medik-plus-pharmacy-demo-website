@@ -275,6 +275,10 @@ header {
     color: var(--color-teal);
 }
 
+.mobile-only-auth-item {
+    display: none;
+}
+
 .nav-actions {
     display: flex;
     align-items: center;
@@ -1321,6 +1325,36 @@ body.menu-open {
 
     .nav-auth-btn {
         display: none;
+    }
+
+    .mobile-only-auth-item {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .mobile-only-auth-btn {
+        display: inline-block;
+        background-color: var(--color-teal);
+        color: var(--color-white) !important;
+        text-align: center;
+        padding: 0.75rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: var(--transition-smooth);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        width: 100%;
+        max-width: 250px;
+        box-sizing: border-box;
+    }
+
+    .mobile-only-auth-btn:hover {
+        background-color: var(--color-teal-hover);
+        transform: translateY(-2px);
     }
     
     .nav-links {
